@@ -1,5 +1,5 @@
 from django.utils import timezone
-from .models import Post
+from .models import Post, Item
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
 from django.http import HttpResponse
@@ -8,9 +8,11 @@ from django.http import HttpResponse
 
 
 def home_page(request):
-    return render(request, 'blog/index.html', {
-        'new_item_text': request.POST.get('item_text', ''),
-    })
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
+    items = Item.objects.all()
+    return render(request, 'blog/index.html', {'items': items})
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
