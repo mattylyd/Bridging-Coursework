@@ -4,6 +4,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
 
 
+
+
+def home_page(request):
+    return render(request, 'blog/index.html')
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
