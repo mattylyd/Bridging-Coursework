@@ -2,12 +2,15 @@ from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
+from django.http import HttpResponse
 
 
 
 
 def home_page(request):
-    return render(request, 'blog/index.html')
+    return render(request, 'blog/index.html', {
+        'new_item_text': request.POST.get('item_text', ''),
+    })
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
