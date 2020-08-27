@@ -1,12 +1,13 @@
 h1 a, h2 a {
-    color: #FF8833;
+    color: #3BB2E2;
     font-family: 'Lobster';
 }
 body {
-    padding-left: 15px;
+    background: black;
+    /*padding-left: 15px;*/
 }
 .page-header {
-    background-color: #C25100;
+    background-color: #3BB2E2;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -18,6 +19,7 @@ body {
 }
 
 .content {
+    background: white;
     height: 80%;
     margin: auto;
     text-align: center;
@@ -26,7 +28,7 @@ body {
 
 }
 body .content h1{
-    background: blue;
+    background: #3BB2E2;
 }
 
 
@@ -55,7 +57,7 @@ h1, h2, h3, h4 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 10px;
 }
 
 .post h2 a, .post h2 a:visited {

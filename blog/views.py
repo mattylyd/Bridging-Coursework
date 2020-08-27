@@ -39,7 +39,7 @@ def post_new(request):
 
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html?error="'+error+'"', {'form': form,'error':error})
+    return render(request, 'blog/post_edit.html', {'form': form,'error':error})
 
 def post_edit(request, pk):
     global error
