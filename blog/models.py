@@ -12,7 +12,7 @@ class Post(models.Model):
     end_date = models.DateField(default=timezone.now(), blank=False, null=False)
 
     def publish(self):
-        self.published_date = timezone.now()
+        # self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
