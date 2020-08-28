@@ -5,7 +5,7 @@ from django import forms
 
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     tag = models.CharField(default="Education", max_length=200, choices=[("Achievements","Achievements"),("Education", "Education"),("Work Experience","Work Experience")])
     title = models.CharField(max_length=200)
     text = models.TextField()
