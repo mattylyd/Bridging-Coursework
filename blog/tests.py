@@ -6,8 +6,21 @@ from django.template.loader import render_to_string
 from .models import Item
 from .views import home_page
 
-class PostTest(TestCase):
-    pass
+class IndexTest(TestCase):
+    def test_root_url_resolves_to_home_page_view(self):
+            found = resolve('/')
+            self.assertEqual(found.func, home_page)
+    def test_home_page_returns_correct_html(self):
+        request = HttpRequest()
+        response = home_page(request)
+        html = response.content.decode('utf8')
+        self.assertIn('<html>', html)
+        self.assertIn('<title>Matt R-J\'s CV</title>', html)
+        self.assertTrue(html.endswith('</html>'))
+
+    def test_uses_home_template(self):
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'blog/index.html')
 # class HomePageTest(TestCase):
 #
 #     def test_root_url_resolves_to_home_page_view(self):

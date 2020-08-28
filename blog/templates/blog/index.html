@@ -1,19 +1,16 @@
+{% load static %}
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>To-Do lists</title>
+    <title>Matt R-J's CV</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-    <h1>Your To-Do list</h1>
-    <form method="POST">
-        <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
-        {% csrf_token %}
-    </form>
-
-    <table id="id_list_table">
-        ​{% for item in items %}
-               ​<tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
-        {% endfor %}
-    </table>
+    <div class="col-m-6">
+        <h1><a href="{% url 'post_list'  %}">Click to Enter</a></h1>
+    </div>
 </body>
 </html>
