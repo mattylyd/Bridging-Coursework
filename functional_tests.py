@@ -12,7 +12,7 @@ class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
-        self.browser.get('http://127.0.0.1:8000/admin')
+        self.browser.get('http://mattylyd.pythonanywhere.com/admin')
         self.browser.find_element_by_name('username').send_keys("MDR824")
         time.sleep(1)
         self.browser.find_element_by_name('password').send_keys("DjangoTest123")
@@ -26,7 +26,7 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         #Load main site click add new
-        self.browser.get('http://127.0.0.1:8000')
+        self.browser.get('http://mattylyd.pythonanywhere.com')
         self.assertIn("Matt R-J\'s CV" , self.browser.title)
         header = self.browser.find_element_by_tag_name('h1')
         self.assertIn('Click to Enter', header.text)
