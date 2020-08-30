@@ -79,7 +79,6 @@ class NewVisitorTest(unittest.TestCase):
         #Find id of created post
         id = self.browser.current_url
         for i in range(len(id)-1):
-            print(i)
             if(id[i] == "/" and id[i+1]=="p"):
                 id = id[i:]
                 break

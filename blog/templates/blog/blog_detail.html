@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <div class="date">
+            {{ blog.datetime }}
+
+        </div>
+
+        {% if user.is_authenticated %}
+             <a class="btn btn-default" href="{% url 'blog_edit' pk=blog.pk %}"><span class="fas fa-pen"></span></a>
+             <a class="btn btn-default" href="{% url 'blog_delete' pk=blog.pk %}"><span class="fas fa-trash"></span></a>
+
+        {% endif %}
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}
