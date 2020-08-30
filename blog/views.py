@@ -12,7 +12,7 @@ def home_page(request):
 
 def cv_list(request):
     posts = CV.objects.filter(start_date__lte=timezone.now()).order_by('start_date')
-    return render(request, 'blog/cv_list.html', {'posts': posts, 'tags' : ["About Me","Achievements","Education","Work Experience"]})
+    return render(request, 'blog/cv_list.html', {'posts': posts, 'tags' : ["Achievements","Education","Work Experience"]})
 
 def cv_detail(request, pk):
     post = get_object_or_404(CV, pk=pk)

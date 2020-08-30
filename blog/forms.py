@@ -4,7 +4,7 @@ from django.forms import DateTimeInput
 from .models import CV,Blog
 
 class CVForm(forms.ModelForm):
-    forms.ChoiceField(choices=[("About Me","About Me"),("Achievements","Achievements"),("Education", "Education"),("Work Experience","Work Experience")], required=True)
+    forms.ChoiceField(choices=[("Achievements","Achievements"),("Education", "Education"),("Work Experience","Work Experience")], required=True)
     # start_date = forms.DateField(widget=forms.widgets.DateInput(attrs={}))
     # end_date = forms.DateField(widget=forms.widgets.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'type':'date'}))
 
